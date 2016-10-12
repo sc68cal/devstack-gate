@@ -57,7 +57,7 @@ branches:
   # Normalized branch names only here, e.g. stable/icehouse => icehouse
   allowed: [master, ocata, newton, mitaka, liberty, kilo, juno, icehouse]
 
-features:
+controller:
   default:
     base:
       services: [mysql, rabbit, dstat]
@@ -181,3 +181,41 @@ features:
       rm-services: [tls-proxy]
     newton:
       rm-services: [tls-proxy]
+
+worker:
+
+  default:
+    base:
+      services: [rabbit, dstat]
+
+  ceilometer:
+    base:
+      services: [ceilometer-acompute]
+
+  glance:
+    base:
+      services: []
+
+  horizon:
+    base:
+      services: []
+
+  keystone:
+    base:
+      services: []
+
+  swift:
+    base:
+      services: []
+
+  cinder:
+    base:
+      services: [c-vol, c-bak]
+
+  nova:
+    base:
+      services: [n-cpu]
+
+  neutron:
+    base:
+      services: [q-agt]
